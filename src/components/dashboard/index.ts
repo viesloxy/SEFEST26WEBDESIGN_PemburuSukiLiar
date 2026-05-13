@@ -7,3 +7,4 @@ export * from "./BudgetOverview";
 export * from "./StatisticsChart";
 export * from "./Sidebar";
 export * from "./TopBar";
+export * from "./QuickAddModal";

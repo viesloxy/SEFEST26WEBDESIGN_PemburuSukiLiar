@@ -11,7 +11,7 @@ import SummaryCards from "@/components/dashboard/SummaryCards";
 import QuickActions from "@/components/dashboard/QuickActions";
 import RecentTransactions from "@/components/dashboard/RecentTransactions";
 import BudgetOverview from "@/components/dashboard/BudgetOverview";
-import AddTransactionModal from "@/components/dashboard/AddTransactionModal";
+import QuickAddModal from "@/components/dashboard/QuickAddModal";
 
 // Dynamic import for StatisticsChart to reduce initial bundle size
 const StatisticsChart = dynamic(
@@ -127,7 +127,7 @@ function DashboardContent({ currentPage }: DashboardContentProps) {
       </div>
 
       {/* Add Transaction Modal */}
-      <AddTransactionModal
+      <QuickAddModal
         isOpen={isModalOpen}
         onClose={() => setIsModalOpen(false)}
         defaultType={modalType}
