@@ -1,0 +1,89 @@
+"use client";
+
+import { motion, AnimatePresence } from "framer-motion";
+import { AlertTriangle } from "lucide-react";
+
+interface DeleteConfirmDialogProps {
+  isOpen: boolean;
+  onClose: () => void;
+  onConfirm: () => void;
+  isDeleting?: boolean;
+}
+
+export default function DeleteConfirmDialog({
+  isOpen,
+  onClose,
+  onConfirm,
+  isDeleting = false,
+}: DeleteConfirmDialogProps) {
+  return (
+    <AnimatePresence>
+      {isOpen && (
+        <>
+          {/* Backdrop */}
+          <motion.div
+            className="fixed inset-0 bg-black/50 backdrop-blur-sm z-50"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            onClick={onClose}
+          />
+
+          {/* Dialog */}
+          <motion.div
+            className="fixed inset-0 z-50 flex items-center justify-center p-4"
+            initial={{ opacity: 0, scale: 0.95 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0, scale: 0.95 }}
+            transition={{ duration: 0.2 }}
+            onClick={(e) => e.stopPropagation()}
+          >
+            <div className="bg-white dark:bg-neutral-900 rounded-2xl shadow-2xl w-full max-w-sm p-6">
+              {/* Icon */}
+              <div className="w-16 h-16 rounded-full bg-expense/10 flex items-center justify-center mx-auto mb-4">
+                <AlertTriangle className="w-8 h-8 text-expense" />
+              </div>
+
+              {/* Content */}
+              <h3 className="text-xl font-semibold text-center mb-2 text-black dark:text-white">
+                Hapus Transaksi?
+              </h3>
+              <p className="text-neutral-600 dark:text-white/50 text-center mb-6">
+                Transaksi ini tidak dapat dikembalikan setelah dihapus.
+              </p>
+
+              {/* Actions */}
+              <div className="flex gap-3">
+                <button
+                  onClick={onClose}
+                  disabled={isDeleting}
+                  className="flex-1 bg-transparent border-2 border-neutral-300 dark:border-neutral-700 text-neutral-700 dark:text-neutral-300 rounded-full py-3 font-semibold hover:bg-neutral-100 dark:hover:bg-neutral-800 transition-all disabled:opacity-50"
+                >
+                  Batal
+                </button>
+                <button
+                  onClick={onConfirm}
+                  disabled={isDeleting}
+                  className="flex-1 bg-expense text-white rounded-full py-3 font-semibold hover:bg-expense/90 transition-all disabled:opacity-50 flex items-center justify-center gap-2"
+                >
+                  {isDeleting ? (
+                    <>
+                      <motion.div
+                        className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full"
+                        animate={{ rotate: 360 }}
+                        transition={{ duration: 1, repeat: Infinity, ease: "linear" }}
+                      />
+                      Menghapus...
+                    </>
+                  ) : (
+                    "Hapus"
+                  )}
+                </button>
+              </div>
+            </div>
+          </motion.div>
+        </>
+      )}
+    </AnimatePresence>
+  );
+}
