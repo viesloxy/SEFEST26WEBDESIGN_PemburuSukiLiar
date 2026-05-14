@@ -136,6 +136,7 @@ export function initDemoData(): AppData {
       currentAmount: 800000,
       deadline: new Date(today.getFullYear(), today.getMonth() + 2, 1).toISOString(),
       createdAt: new Date(today.getFullYear(), today.getMonth() - 1, 1).toISOString(),
+      icon: "headphones",
     },
     {
       id: "2",
@@ -144,6 +145,7 @@ export function initDemoData(): AppData {
       currentAmount: 500000,
       deadline: new Date(today.getFullYear(), today.getMonth() + 4, 1).toISOString(),
       createdAt: new Date(today.getFullYear(), today.getMonth(), 1).toISOString(),
+      icon: "plane",
     },
   ];
 

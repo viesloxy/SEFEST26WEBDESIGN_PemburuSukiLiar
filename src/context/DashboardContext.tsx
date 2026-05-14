@@ -10,18 +10,24 @@ interface DashboardContextType {
   appData: AppData | null;
   transactions: Transaction[];
   settings: UserSettings;
+  savingsGoals: SavingsGoal[];
 
   // Computed values
   monthlyIncome: number;
   monthlyExpense: number;
   balance: number;
   recentTransactions: Transaction[];
+  totalSavings: number;
 
   // Actions
   addTransaction: (transaction: Omit<Transaction, "id">) => void;
   updateTransaction: (id: string, transaction: Partial<Transaction>) => void;
   deleteTransaction: (id: string) => void;
   updateSettings: (settings: Partial<UserSettings>) => void;
+  addSavingsGoal: (goal: Omit<SavingsGoal, "id" | "currentAmount" | "createdAt">) => void;
+  updateSavingsGoal: (id: string, updates: Partial<SavingsGoal>) => void;
+  deleteSavingsGoal: (id: string) => void;
+  addFundsToGoal: (id: string, amount: number, note?: string) => void;
   refreshData: () => void;
 
   // Loading state
@@ -53,6 +59,7 @@ export function DashboardProvider({ children }: DashboardProviderProps) {
 
   // Computed values
   const transactions = appData?.transactions || [];
+  const savingsGoals = appData?.savingsGoals || [];
   const settings = appData?.settings || {
     name: "Gen-Z User",
     darkMode: false,
@@ -71,6 +78,7 @@ export function DashboardProvider({ children }: DashboardProviderProps) {
   const monthlyExpense = getMonthExpense(transactions);
   const balance = getBalance(transactions);
   const recentTransactions = getRecentTransactions(transactions, 5);
+  const totalSavings = savingsGoals.reduce((sum, goal) => sum + goal.currentAmount, 0);
 
   // Actions
   const refreshData = useCallback(() => {
@@ -136,18 +144,96 @@ export function DashboardProvider({ children }: DashboardProviderProps) {
     });
   }, []);
 
+  const addSavingsGoal = useCallback((goal: Omit<SavingsGoal, "id" | "currentAmount" | "createdAt">) => {
+    const newGoal: SavingsGoal = {
+      ...goal,
+      id: generateId(),
+      currentAmount: 0,
+      createdAt: new Date().toISOString(),
+    };
+
+    setAppData((prev) => {
+      if (!prev) return null;
+      const updated = {
+        ...prev,
+        savingsGoals: [newGoal, ...prev.savingsGoals],
+      };
+      saveAppData(updated);
+      return updated;
+    });
+  }, []);
+
+  const updateSavingsGoal = useCallback((id: string, updates: Partial<SavingsGoal>) => {
+    setAppData((prev) => {
+      if (!prev) return null;
+      const updated = {
+        ...prev,
+        savingsGoals: prev.savingsGoals.map((g) =>
+          g.id === id ? { ...g, ...updates } : g
+        ),
+      };
+      saveAppData(updated);
+      return updated;
+    });
+  }, []);
+
+  const deleteSavingsGoal = useCallback((id: string) => {
+    setAppData((prev) => {
+      if (!prev) return null;
+      const updated = {
+        ...prev,
+        savingsGoals: prev.savingsGoals.filter((g) => g.id !== id),
+      };
+      saveAppData(updated);
+      return updated;
+    });
+  }, []);
+
+  const addFundsToGoal = useCallback((id: string, amount: number, note?: string) => {
+    setAppData((prev) => {
+      if (!prev) return null;
+      const goal = prev.savingsGoals.find((g) => g.id === id);
+      if (!goal) return prev;
+
+      const updated = {
+        ...prev,
+        savingsGoals: prev.savingsGoals.map((g) =>
+          g.id === id
+            ? {
+                ...g,
+                currentAmount: g.currentAmount + amount,
+                lastContribution: {
+                  amount,
+                  date: new Date().toISOString(),
+                  note,
+                },
+              }
+            : g
+        ),
+      };
+      saveAppData(updated);
+      return updated;
+    });
+  }, []);
+
   const value: DashboardContextType = {
     appData,
     transactions,
     settings,
+    savingsGoals,
     monthlyIncome,
     monthlyExpense,
     balance,
     recentTransactions,
+    totalSavings,
     addTransaction,
     updateTransaction,
     deleteTransaction,
     updateSettings,
+    addSavingsGoal,
+    updateSavingsGoal,
+    deleteSavingsGoal,
+    addFundsToGoal,
     refreshData,
     isLoading,
   };

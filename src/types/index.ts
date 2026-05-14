@@ -28,6 +28,12 @@ export interface SavingsGoal {
   currentAmount: number;
   deadline: string;
   createdAt: string;
+  icon: string;
+  lastContribution?: {
+    amount: number;
+    date: string;
+    note?: string;
+  };
 }
 
 // Streak Types

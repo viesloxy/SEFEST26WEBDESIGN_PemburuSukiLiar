@@ -9,6 +9,12 @@
     --budget-warning: #FF9800;
     --budget-danger: #FF5252;
     --budget-exceeded: #B71C1C;
+
+    /* Savings Status Colors */
+    --savings-progress: #A4D624;
+    --savings-complete: #4CAF50;
+    --savings-pending: #FF9800;
+    --savings-overdue: #FF5252;
   }
 
   html {
@@ -91,5 +97,26 @@ html.dark ::-webkit-scrollbar-thumb {
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
     border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+}
+
+@layer utilities {
+  .text-savings-progress {
+    color: var(--savings-progress);
+  }
+  .text-savings-complete {
+    color: var(--savings-complete);
+  }
+  .text-savings-pending {
+    color: var(--savings-pending);
+  }
+  .text-savings-overdue {
+    color: var(--savings-overdue);
+  }
+  .bg-savings-progress {
+    background-color: var(--savings-progress);
+  }
+  .bg-savings-complete {
+    background-color: var(--savings-complete);
   }
 }
