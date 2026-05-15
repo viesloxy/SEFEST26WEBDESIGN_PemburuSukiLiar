@@ -198,13 +198,13 @@ export default function TransactionEditModal({
             onClick={(e) => e.stopPropagation()}
           >
             <div
-              className="bg-white dark:bg-neutral-900 rounded-2xl shadow-2xl w-full max-w-md overflow-hidden"
+              className="bg-white dark:bg-neutral-900 rounded-2xl shadow-2xl w-full max-w-md max-h-[90vh] md:max-h-[85vh] flex flex-col overflow-hidden"
               role="dialog"
               aria-labelledby="edit-modal-title"
               aria-modal="true"
             >
               {/* Header */}
-              <div className="flex items-center justify-between p-6 border-b border-black/10 dark:border-white/10">
+              <div className="flex items-center justify-between p-6 border-b border-black/10 dark:border-white/10 flex-shrink-0">
                 <h2 id="edit-modal-title" className="text-xl font-semibold text-black dark:text-white">
                   Edit Transaksi
                 </h2>
@@ -218,7 +218,7 @@ export default function TransactionEditModal({
               </div>
 
               {/* Form */}
-              <div className="p-6 space-y-5">
+              <div className="p-6 space-y-5 overflow-y-auto flex-1">
                 {/* Type Tabs */}
                 <div className="space-y-2">
                   <label className="text-sm font-medium text-neutral-700 dark:text-neutral-300">
@@ -361,7 +361,7 @@ export default function TransactionEditModal({
               </div>
 
               {/* Footer */}
-              <div className="flex gap-3 p-6 border-t border-black/10 dark:border-white/10">
+              <div className="flex gap-3 p-6 border-t border-black/10 dark:border-white/10 flex-shrink-0">
                 <button
                   onClick={onClose}
                   className="flex-1 bg-transparent border-2 border-neutral-300 dark:border-neutral-700 text-neutral-700 dark:text-neutral-300 rounded-full px-6 py-3 font-semibold hover:bg-neutral-100 dark:hover:bg-neutral-800 transition-all"

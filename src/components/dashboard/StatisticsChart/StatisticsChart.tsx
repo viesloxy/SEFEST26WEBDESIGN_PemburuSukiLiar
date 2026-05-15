@@ -279,7 +279,7 @@ export default function StatisticsChart({ className = "" }: StatisticsChartProps
               </div>
             </div>
 
-            <div className="flex flex-col sm:flex-row items-start sm:items-center gap-3">
+            <div className="flex flex-col sm:flex-row items-start sm:items-center gap-3 w-full">
               {/* Chart type toggle */}
               <div className="flex bg-black/5 dark:bg-white/10 rounded-full p-1">
                 <button
@@ -304,16 +304,39 @@ export default function StatisticsChart({ className = "" }: StatisticsChartProps
                 </button>
               </div>
 
-              {/* Time range selector */}
-              <select
-                value={timeRange}
-                onChange={(e) => setTimeRange(e.target.value as TimeRange)}
-                className="bg-white dark:bg-neutral-900 border border-black/10 dark:border-white/10 rounded-lg px-3 py-2 text-xs text-neutral-600 dark:text-white/60 focus:outline-none focus:border-primary w-full sm:w-auto"
-              >
-                <option value="week">Minggu Ini</option>
-                <option value="month">Bulan Ini</option>
-                <option value="3months">3 Bulan Terakhir</option>
-              </select>
+              {/* Time range selector - Segmented control */}
+              <div className="flex bg-black/5 dark:bg-white/10 rounded-full p-1 w-full sm:w-auto">
+                <button
+                  onClick={() => setTimeRange("week")}
+                  className={`flex-1 sm:flex-none px-3 py-1.5 rounded-full text-xs font-medium transition-all whitespace-nowrap ${
+                    timeRange === "week"
+                      ? "bg-primary text-neutral-900"
+                      : "text-neutral-600 dark:text-white/60 hover:text-primary"
+                  }`}
+                >
+                  Minggu
+                </button>
+                <button
+                  onClick={() => setTimeRange("month")}
+                  className={`flex-1 sm:flex-none px-3 py-1.5 rounded-full text-xs font-medium transition-all whitespace-nowrap ${
+                    timeRange === "month"
+                      ? "bg-primary text-neutral-900"
+                      : "text-neutral-600 dark:text-white/60 hover:text-primary"
+                  }`}
+                >
+                  Bulan
+                </button>
+                <button
+                  onClick={() => setTimeRange("3months")}
+                  className={`flex-1 sm:flex-none px-3 py-1.5 rounded-full text-xs font-medium transition-all whitespace-nowrap ${
+                    timeRange === "3months"
+                      ? "bg-primary text-neutral-900"
+                      : "text-neutral-600 dark:text-white/60 hover:text-primary"
+                  }`}
+                >
+                  3 Bulan
+                </button>
+              </div>
             </div>
           </div>
         </div>

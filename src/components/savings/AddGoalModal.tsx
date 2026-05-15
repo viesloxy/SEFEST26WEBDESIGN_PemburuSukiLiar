@@ -150,14 +150,14 @@ export default function AddGoalModal({
             exit={{ opacity: 0 }}
           >
             <motion.div
-              className="bg-white dark:bg-neutral-900 rounded-2xl w-full max-w-md p-6 shadow-2xl"
+              className="bg-white dark:bg-neutral-900 rounded-2xl w-full max-w-md max-h-[90vh] md:max-h-[85vh] flex flex-col overflow-hidden shadow-2xl"
               initial={{ scale: 0.9, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.9, opacity: 0 }}
               transition={{ type: "spring", damping: 25, stiffness: 300 }}
             >
               {/* Header */}
-              <div className="flex items-center justify-between mb-6">
+              <div className="flex items-center justify-between p-6 border-b border-black/10 dark:border-white/10 flex-shrink-0">
                 <h2 className="text-xl font-semibold text-black dark:text-white">
                   {editGoal ? "Edit Tujuan" : "Tujuan Tabungan Baru"}
                 </h2>
@@ -170,7 +170,7 @@ export default function AddGoalModal({
               </div>
 
               {/* Form */}
-              <form onSubmit={handleSubmit} className="space-y-5">
+              <form onSubmit={handleSubmit} className="p-6 space-y-5 overflow-y-auto flex-1">
                 {/* Name Input */}
                 <div className="space-y-2">
                   <label className="text-sm font-medium text-black dark:text-white">
@@ -288,7 +288,7 @@ export default function AddGoalModal({
                 {/* Submit Button */}
                 <motion.button
                   type="submit"
-                  className="w-full bg-primary text-neutral-900 rounded-full py-3 font-semibold hover:shadow-lg hover:shadow-primary/30 transition-all"
+                  className="w-full bg-primary text-neutral-900 rounded-full py-3 font-semibold hover:shadow-lg hover:shadow-primary/30 transition-all flex-shrink-0"
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
                 >

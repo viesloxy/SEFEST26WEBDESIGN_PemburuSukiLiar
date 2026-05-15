@@ -112,14 +112,14 @@ export default function ColekModal({
             exit={{ opacity: 0 }}
           >
             <motion.div
-              className="bg-white dark:bg-neutral-900 rounded-2xl w-full max-w-md p-6 shadow-2xl"
+              className="bg-white dark:bg-neutral-900 rounded-2xl w-full max-w-md max-h-[90vh] md:max-h-[85vh] flex flex-col overflow-hidden shadow-2xl"
               initial={{ scale: 0.9, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.9, opacity: 0 }}
               transition={{ type: "spring", damping: 25, stiffness: 300 }}
             >
               {/* Header */}
-              <div className="flex items-center justify-between mb-6">
+              <div className="flex items-center justify-between p-6 border-b border-black/10 dark:border-white/10 flex-shrink-0">
                 <h2 className="text-xl font-semibold text-black dark:text-white">
                   Colek Tabungan
                 </h2>
@@ -131,90 +131,96 @@ export default function ColekModal({
                 </button>
               </div>
 
-              {/* Goal Info */}
-              <div className="flex items-center gap-3 p-4 bg-neutral-100 dark:bg-neutral-800 rounded-xl mb-6">
-                <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center">
-                  <IconComponent className="w-5 h-5 text-primary" />
+              {/* Content - Scrollable */}
+              <div className="flex-1 overflow-y-auto p-6">
+                {/* Goal Info */}
+                <div className="flex items-center gap-3 p-4 bg-neutral-100 dark:bg-neutral-800 rounded-xl mb-6">
+                  <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center">
+                    <IconComponent className="w-5 h-5 text-primary" />
+                  </div>
+                  <div>
+                    <p className="font-medium text-black dark:text-white">
+                      {goal.name}
+                    </p>
+                    <p className="text-sm text-neutral-500">
+                      {formatCurrency(goal.currentAmount)} / {formatCurrency(goal.targetAmount)}
+                    </p>
+                  </div>
                 </div>
-                <div>
-                  <p className="font-medium text-black dark:text-white">
-                    {goal.name}
-                  </p>
-                  <p className="text-sm text-neutral-500">
-                    {formatCurrency(goal.currentAmount)} / {formatCurrency(goal.targetAmount)}
-                  </p>
-                </div>
-              </div>
 
-              {/* Remaining indicator */}
-              {remaining > 0 && (
-                <p className="text-sm text-neutral-500 mb-4 text-center">
-                  Sisa {formatCurrency(remaining)} untuk mencapai target
-                </p>
-              )}
+                {/* Remaining indicator */}
+                {remaining > 0 && (
+                  <p className="text-sm text-neutral-500 mb-4 text-center">
+                    Sisa {formatCurrency(remaining)} untuk mencapai target
+                  </p>
+                )}
 
-              {/* Form */}
-              <form onSubmit={handleSubmit} className="space-y-5">
-                {/* Amount Input */}
-                <div className="space-y-2">
-                  <label className="text-sm font-medium text-black dark:text-white">
-                    Jumlah
-                  </label>
-                  <div className="relative">
-                    <span className="absolute left-4 top-1/2 -translate-y-1/2 text-neutral-500">
-                      Rp
-                    </span>
-                    <input
-                      type="text"
-                      value={amountDisplay}
-                      onChange={handleAmountChange}
-                      className={`w-full bg-white dark:bg-neutral-800 border rounded-xl pl-12 pr-4 py-3 text-lg font-semibold focus:ring-2 focus:ring-primary/20 outline-none transition-colors ${
-                        error
-                          ? "border-expense focus:border-expense"
-                          : "border-black/10 dark:border-white/10 focus:border-primary"
-                      }`}
-                      placeholder="0"
+                {/* Form */}
+                <form id="colek-form" onSubmit={handleSubmit} className="space-y-5">
+                  {/* Amount Input */}
+                  <div className="space-y-2">
+                    <label className="text-sm font-medium text-black dark:text-white">
+                      Jumlah
+                    </label>
+                    <div className="relative">
+                      <span className="absolute left-4 top-1/2 -translate-y-1/2 text-neutral-500">
+                        Rp
+                      </span>
+                      <input
+                        type="text"
+                        value={amountDisplay}
+                        onChange={handleAmountChange}
+                        className={`w-full bg-white dark:bg-neutral-800 border rounded-xl pl-12 pr-4 py-3 text-lg font-semibold focus:ring-2 focus:ring-primary/20 outline-none transition-colors ${
+                          error
+                            ? "border-expense focus:border-expense"
+                            : "border-black/10 dark:border-white/10 focus:border-primary"
+                        }`}
+                        placeholder="0"
+                      />
+                    </div>
+                    {error && <p className="text-xs text-expense">{error}</p>}
+
+                    {/* Quick Amounts */}
+                    <div className="grid grid-cols-4 gap-2">
+                      {quickAmounts.map((amt) => (
+                        <button
+                          key={amt}
+                          type="button"
+                          onClick={() => handleQuickAmount(amt)}
+                          className={`px-2 py-2 rounded-lg text-sm font-medium transition-colors ${
+                            amount === amt
+                              ? "bg-primary text-neutral-900"
+                              : "bg-neutral-100 dark:bg-neutral-800 text-neutral-600 dark:text-white/60 hover:bg-primary/10 hover:text-primary"
+                          }`}
+                        >
+                          {formatCurrency(amt)}
+                        </button>
+                      ))}
+                    </div>
+                  </div>
+
+                  {/* Note */}
+                  <div className="space-y-2">
+                    <label className="text-sm font-medium text-black dark:text-white">
+                      Catatan{" "}
+                      <span className="text-neutral-400 font-normal">(opsional)</span>
+                    </label>
+                    <textarea
+                      value={note}
+                      onChange={(e) => setNote(e.target.value)}
+                      placeholder="Contoh: Dari gaji bulanan"
+                      rows={2}
+                      className="w-full bg-white dark:bg-neutral-800 border border-black/10 dark:border-white/10 rounded-xl px-4 py-3 resize-none focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-colors"
                     />
                   </div>
-                  {error && <p className="text-xs text-expense">{error}</p>}
+                </form>
+              </div>
 
-                  {/* Quick Amounts */}
-                  <div className="grid grid-cols-4 gap-2">
-                    {quickAmounts.map((amt) => (
-                      <button
-                        key={amt}
-                        type="button"
-                        onClick={() => handleQuickAmount(amt)}
-                        className={`px-2 py-2 rounded-lg text-sm font-medium transition-colors ${
-                          amount === amt
-                            ? "bg-primary text-neutral-900"
-                            : "bg-neutral-100 dark:bg-neutral-800 text-neutral-600 dark:text-white/60 hover:bg-primary/10 hover:text-primary"
-                        }`}
-                      >
-                        {formatCurrency(amt)}
-                      </button>
-                    ))}
-                  </div>
-                </div>
-
-                {/* Note */}
-                <div className="space-y-2">
-                  <label className="text-sm font-medium text-black dark:text-white">
-                    Catatan{" "}
-                    <span className="text-neutral-400 font-normal">(opsional)</span>
-                  </label>
-                  <textarea
-                    value={note}
-                    onChange={(e) => setNote(e.target.value)}
-                    placeholder="Contoh: Dari gaji bulanan"
-                    rows={2}
-                    className="w-full bg-white dark:bg-neutral-800 border border-black/10 dark:border-white/10 rounded-xl px-4 py-3 resize-none focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-colors"
-                  />
-                </div>
-
-                {/* Submit Button */}
+              {/* Submit Button - Fixed at bottom */}
+              <div className="p-6 border-t border-black/10 dark:border-white/10 flex-shrink-0">
                 <motion.button
                   type="submit"
+                  form="colek-form"
                   className="w-full bg-primary text-neutral-900 rounded-full py-3 font-semibold hover:shadow-lg hover:shadow-primary/30 transition-all flex items-center justify-center gap-2"
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
@@ -222,7 +228,7 @@ export default function ColekModal({
                   <PiggyBank className="w-5 h-5" />
                   Colek Sekarang
                 </motion.button>
-              </form>
+              </div>
             </motion.div>
           </motion.div>
         </>
