@@ -129,7 +129,7 @@ export default function CustomCursor() {
             damping: 25,
           }}
         >
-          {/* Custom SVG Cursor - KANTONGEK Brand Color */}
+          {/* Custom SVG Cursor - Kantongek Brand Color */}
           <svg
             width={currentSize}
             height={currentSize}

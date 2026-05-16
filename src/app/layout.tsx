@@ -13,7 +13,7 @@ const poppins = Poppins({
 });
 
 export const metadata: Metadata = {
-  title: "KANTONGEK - Gen-Z Personal Finance Tracker",
+  title: "Kantongek - Gen-Z Personal Finance Tracker",
   description: "Kelola uang dengan smarter, simpler, dan lebih menyenangkan. Track pengeluaran, atur budget, dan capai tujuan finansialmu.",
   keywords: ["finance", "tracker", "gen-z", "budget", " Indonesia"],
 };

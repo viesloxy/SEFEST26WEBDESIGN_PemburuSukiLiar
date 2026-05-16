@@ -4,7 +4,7 @@ import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, Sun, Moon, LayoutDashboard, Receipt, PiggyBank, TrendingUp, BarChart3, User, LogOut, Settings } from "lucide-react";
+import { Menu, X, Sun, Moon, LayoutDashboard, Receipt, PiggyBank, TrendingUp, BarChart3, LogOut, Settings } from "lucide-react";
 import { useTheme } from "@/components/providers/ThemeProvider";
 import { useDashboard } from "@/context/DashboardContext";
 
@@ -37,13 +37,13 @@ export default function DashboardNavbar({ currentPage = "dashboard" }: Dashboard
                 <div className="relative w-9 h-9">
                   <Image
                     src="/images/Logo.svg"
-                    alt="KANTONGEK"
+                    alt="Kantongek"
                     fill
                     className="object-contain"
                   />
                 </div>
                 <span className="font-bold text-lg tracking-tight text-black dark:text-white">
-                  KANTONGEK
+                  Kantongek
                 </span>
               </Link>
 
@@ -105,8 +105,14 @@ export default function DashboardNavbar({ currentPage = "dashboard" }: Dashboard
                     className="flex items-center gap-2 px-3 py-2 rounded-full bg-black/5 dark:bg-white/10 hover:bg-black/10 dark:hover:bg-white/15 transition-all duration-300"
                     aria-label="User menu"
                   >
-                    <div className="w-8 h-8 rounded-full bg-primary/20 flex items-center justify-center">
-                      <User className="w-4 h-4 text-primary" />
+                    <div className="w-8 h-8 rounded-full overflow-hidden">
+                      <Image
+                        src="/images/avatar-5.jpeg"
+                        alt={settings.name}
+                        width={32}
+                        height={32}
+                        className="object-cover w-full h-full"
+                      />
                     </div>
                     <span className="hidden md:block text-sm font-medium text-black dark:text-white">
                       {settings.name}

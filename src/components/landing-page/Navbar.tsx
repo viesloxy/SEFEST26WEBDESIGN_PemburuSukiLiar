@@ -31,12 +31,12 @@ export default function Navbar() {
                 <div className="relative w-9 h-9 md:w-10 md:h-10">
                   <Image
                     src="/images/Logo.svg"
-                    alt="KANTONGEK"
+                    alt="Kantongek"
                     fill
                     className="object-contain"
                   />
                 </div>
-                <span className="font-bold text-base md:text-lg tracking-tight text-black dark:text-white">KANTONGEK</span>
+                <span className="font-bold text-base md:text-lg tracking-tight text-black dark:text-white">Kantongek</span>
               </Link>
 
               {/* Desktop Navigation */}

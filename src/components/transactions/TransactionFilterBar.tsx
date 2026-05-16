@@ -95,7 +95,7 @@ export default function TransactionFilterBar({
 
   return (
     <motion.div
-      className="sticky top-20 z-40 bg-white/95 dark:bg-neutral-900/95 backdrop-blur-sm border border-black/10 dark:border-white/10 rounded-2xl p-3 sm:p-4 mb-6 overflow-hidden"
+      className="sticky top-20 z-20 bg-white/95 dark:bg-neutral-900/95 backdrop-blur-sm border border-black/10 dark:border-white/10 rounded-2xl p-3 sm:p-4 mb-6 overflow-hidden"
       initial={{ opacity: 0, y: -10 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.3 }}

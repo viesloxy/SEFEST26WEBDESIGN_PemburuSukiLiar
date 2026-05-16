@@ -3,7 +3,7 @@ import { AppData, Transaction, SavingsGoal, StreakData, UserSettings } from "@/t
 const STORAGE_KEY = "kantongek_data";
 
 const defaultSettings: UserSettings = {
-  name: "Gen-Z User",
+  name: "Viesloxy",
   darkMode: false,
   monthlyBudget: {
     makanan: 500000,
@@ -154,7 +154,7 @@ export function initDemoData(): AppData {
   const demoAppData: AppData = {
     settings: {
       ...defaultSettings,
-      name: "KANTONGEK User",
+      name: "Viesloxy",
       monthlyIncome: 2500000,
     },
     transactions: demoTransactions,

@@ -129,7 +129,7 @@ export default function MockupSection() {
               Tersedia di Semua Platform
             </h3>
             <p className="text-base mb-6 max-w-md mx-auto text-neutral-600 dark:text-white/50">
-              KANTONGEK dapat diakses melalui browser di desktop maupun mobile. Tidak perlu download aplikasi tambahan
+              Kantongek dapat diakses melalui browser di desktop maupun mobile. Tidak perlu download aplikasi tambahan
             </p>
             <div className="flex flex-wrap justify-center gap-4">
               <div className="flex items-center gap-2 px-4 py-2 bg-neutral-100 dark:bg-neutral-900 rounded-lg border border-primary/20">

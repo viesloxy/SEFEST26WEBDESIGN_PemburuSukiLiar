@@ -84,9 +84,9 @@ export default function Sidebar({ currentPage, isOpen, onClose }: SidebarProps) 
       <aside className="fixed top-0 left-0 h-screen w-64 md:w-72 bg-white dark:bg-neutral-950 border-r border-black/10 dark:border-white/10 z-50 flex flex-col">
         <div className="flex items-center gap-3 px-4 h-16 border-b border-black/10 dark:border-white/10">
           <div className="relative w-9 h-9 flex-shrink-0">
-            <Image src="/images/Logo.svg" alt="KANTONGEK" fill className="object-contain" />
+            <Image src="/images/Logo.svg" alt="Kantongek" fill className="object-contain" />
           </div>
-          <span className="font-bold text-lg tracking-tight text-black dark:text-white">KANTONGEK</span>
+          <span className="font-bold text-lg tracking-tight text-black dark:text-white">Kantongek</span>
         </div>
       </aside>
     );
@@ -126,13 +126,13 @@ export default function Sidebar({ currentPage, isOpen, onClose }: SidebarProps) 
             <div className="relative w-9 h-9 flex-shrink-0">
               <Image
                 src="/images/Logo.svg"
-                alt="KANTONGEK"
+                alt="Kantongek"
                 fill
                 className="object-contain"
               />
             </div>
             <span className="font-bold text-lg tracking-tight text-black dark:text-white whitespace-nowrap">
-              KANTONGEK
+              Kantongek
             </span>
           </Link>
         </div>
@@ -208,10 +208,14 @@ export default function Sidebar({ currentPage, isOpen, onClose }: SidebarProps) 
           {/* User Info */}
           <div className="mt-4 p-3 rounded-xl bg-black/5 dark:bg-white/5">
             <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center flex-shrink-0">
-                <span className="text-sm font-bold text-primary">
-                  {settings.name.charAt(0).toUpperCase()}
-                </span>
+              <div className="w-10 h-10 rounded-full overflow-hidden flex-shrink-0">
+                <Image
+                  src="/images/avatar-5.jpeg"
+                  alt={settings.name}
+                  width={40}
+                  height={40}
+                  className="object-cover w-full h-full"
+                />
               </div>
               <div className="min-w-0">
                 <p className="font-medium text-sm text-black dark:text-white truncate">
@@ -245,13 +249,13 @@ export default function Sidebar({ currentPage, isOpen, onClose }: SidebarProps) 
             <div className="relative w-9 h-9 flex-shrink-0">
               <Image
                 src="/images/Logo.svg"
-                alt="KANTONGEK"
+                alt="Kantongek"
                 fill
                 className="object-contain"
               />
             </div>
             <span className="font-bold text-lg tracking-tight text-black dark:text-white whitespace-nowrap">
-              KANTONGEK
+              Kantongek
             </span>
           </Link>
 
@@ -336,10 +340,14 @@ export default function Sidebar({ currentPage, isOpen, onClose }: SidebarProps) 
           {/* User Info */}
           <div className="mt-4 p-3 rounded-xl bg-black/5 dark:bg-white/5">
             <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center flex-shrink-0">
-                <span className="text-sm font-bold text-primary">
-                  {settings.name.charAt(0).toUpperCase()}
-                </span>
+              <div className="w-10 h-10 rounded-full overflow-hidden flex-shrink-0">
+                <Image
+                  src="/images/avatar-5.jpeg"
+                  alt={settings.name}
+                  width={40}
+                  height={40}
+                  className="object-cover w-full h-full"
+                />
               </div>
               <div className="min-w-0">
                 <p className="font-medium text-sm text-black dark:text-white truncate">

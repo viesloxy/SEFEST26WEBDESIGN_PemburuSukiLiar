@@ -76,7 +76,7 @@ export default function TransactionList({
         {groupedTransactions.map((group) => (
           <div key={group.date}>
             {/* Date Header */}
-            <h3 className="text-sm font-semibold text-neutral-500 dark:text-white/50 mb-4 sticky top-44 bg-white dark:bg-black z-30 py-2">
+            <h3 className="text-sm font-semibold text-neutral-500 dark:text-white/50 mb-4 py-2">
               {formatDateHeader(group.date)}
             </h3>
 

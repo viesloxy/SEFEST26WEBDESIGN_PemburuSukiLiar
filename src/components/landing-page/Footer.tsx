@@ -50,12 +50,12 @@ export default function Footer() {
               <div className="relative w-10 h-10">
                 <Image
                   src="/images/Logo.svg"
-                  alt="KANTONGEK"
+                  alt="Kantongek"
                   fill
                   className="object-contain"
                 />
               </div>
-              <span className="font-bold text-lg tracking-tight">KANTONGEK</span>
+              <span className="font-bold text-lg tracking-tight">Kantongek</span>
             </Link>
             <p className="text-sm mb-6 max-w-sm text-neutral-600 dark:text-white/50">
               Aplikasi pengelolaan keuangan pribadi untuk Gen-Z Indonesia. Kelola uangmu dengan smarter, simpler, dan lebih menyenangkan.
@@ -144,7 +144,7 @@ export default function Footer() {
         <div className="max-w-7xl mx-auto px-6 py-6">
           <div className="flex flex-col md:flex-row items-center justify-between gap-4">
             <p className="text-sm text-neutral-600 dark:text-white/50">
-              2026 KANTONGEK. All rights reserved.
+              2026 Kantongek. All rights reserved.
             </p>
             <div className="flex items-center gap-6">
               <Link href="#kontak" className="text-sm hover:text-primary transition-colors text-neutral-600 dark:text-white/50">

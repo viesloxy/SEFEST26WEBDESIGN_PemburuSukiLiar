@@ -2,7 +2,8 @@
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, Sun, Moon, User, Settings, LogOut } from "lucide-react";
+import Image from "next/image";
+import { Menu, Sun, Moon, Settings, LogOut } from "lucide-react";
 import { useRouter } from "next/navigation";
 import { useTheme } from "@/components/providers/ThemeProvider";
 import { useDashboard } from "@/context/DashboardContext";
@@ -83,8 +84,14 @@ export default function TopBar({ onMenuClick, currentPage }: TopBarProps) {
             className="flex items-center gap-2 px-3 py-2 rounded-full bg-black/5 dark:bg-white/10 hover:bg-black/10 dark:hover:bg-white/15 transition-all duration-300"
             aria-label="User menu"
           >
-            <div className="w-8 h-8 rounded-full bg-primary/20 flex items-center justify-center">
-              <User className="w-4 h-4 text-primary" />
+            <div className="w-8 h-8 rounded-full overflow-hidden">
+              <Image
+                src="/images/avatar-5.jpeg"
+                alt={settings.name}
+                width={32}
+                height={32}
+                className="object-cover w-full h-full"
+              />
             </div>
             <span className="hidden md:block text-sm font-medium text-black dark:text-white">
               {settings.name}

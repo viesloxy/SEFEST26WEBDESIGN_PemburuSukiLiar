@@ -83,7 +83,7 @@ export default function ProfileSection() {
             onClick={handlePhotoClick}
           >
             <Image
-              src={photo || user?.name ? `/images/default-avatar.png` : "/images/default-avatar.png"}
+              src={photo || user?.name ? `/images/avatar-5.jpeg` : "/images/avatar-5.jpeg"}
               alt="Profile"
               fill
               className="object-cover"

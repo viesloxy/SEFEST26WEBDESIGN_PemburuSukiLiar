@@ -40,7 +40,7 @@ export default function Home() {
                 Siap Mengelola Keuanganmu?
               </h2>
               <p className="text-base max-w-xl mx-auto mb-8 text-neutral-600 dark:text-white/50">
-                Bergabung dengan ribuan Gen-Z Indonesia yang sudah merasakan manfaat KANTONGEK dalam mengelola keuangan sehari-hari
+                Bergabung dengan ribuan Gen-Z Indonesia yang sudah merasakan manfaat Kantongek dalam mengelola keuangan sehari-hari
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <MotionButton label="Mulai Sekarang - Gratis" />

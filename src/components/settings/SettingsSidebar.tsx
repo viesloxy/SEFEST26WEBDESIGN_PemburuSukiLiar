@@ -73,10 +73,10 @@ export default function SettingsSidebar({ className = "" }: SettingsSidebarProps
           {/* Logo placeholder */}
           <div className="flex items-center gap-3 px-2 py-2">
             <div className="relative w-9 h-9 flex-shrink-0">
-              <Image src="/images/Logo.svg" alt="KANTONGEK" fill className="object-contain" />
+              <Image src="/images/Logo.svg" alt="Kantongek" fill className="object-contain" />
             </div>
             <span className="font-bold text-lg tracking-tight text-black dark:text-white">
-              KANTONGEK
+              Kantongek
             </span>
           </div>
 
@@ -101,10 +101,10 @@ export default function SettingsSidebar({ className = "" }: SettingsSidebarProps
         <div className="flex items-center gap-3 px-2 py-2">
           <Link href="/dashboard" className="flex items-center gap-3">
             <div className="relative w-9 h-9 flex-shrink-0">
-              <Image src="/images/Logo.svg" alt="KANTONGEK" fill className="object-contain" />
+              <Image src="/images/Logo.svg" alt="Kantongek" fill className="object-contain" />
             </div>
             <span className="font-bold text-lg tracking-tight text-black dark:text-white">
-              KANTONGEK
+              Kantongek
             </span>
           </Link>
         </div>
@@ -213,7 +213,7 @@ export default function SettingsSidebar({ className = "" }: SettingsSidebarProps
             </div>
             <div>
               <p className="text-sm font-medium text-black dark:text-white">
-                KANTONGEK
+                Kantongek
               </p>
               <p className="text-xs text-neutral-500 dark:text-white/50">
                 v1.0.0

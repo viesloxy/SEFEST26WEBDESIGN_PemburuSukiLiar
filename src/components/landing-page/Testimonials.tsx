@@ -9,7 +9,7 @@ const testimonials = [
     name: "Rizky Pratama",
     role: "Mahasiswa Informatika",
     university: "Telkom University",
-    quote: "KANTONGEK membantu aku lebih sadar pengeluaran. Sebelum pakai app ini, uang saku sering habis tanpa jejak. Sekarang bisa nabung buat beli laptop baru!",
+    quote: "Kantongek membantu aku lebih sadar pengeluaran. Sebelum pakai app ini, uang saku sering habis tanpa jejak. Sekarang bisa nabung buat beli laptop baru!",
     avatar: "/images/avatar-1.jpeg",
   },
   {
@@ -23,7 +23,7 @@ const testimonials = [
     name: "Bagas Ardhana",
     role: "Fresh Graduate",
     university: "UGM",
-    quote: "Sebagai fresh graduate, mengelola gaji pertama itu challenging. KANTONGEK jadi teman tepat untuk belajar keuangan dari awal.",
+    quote: "Sebagai fresh graduate, mengelola gaji pertama itu challenging. Kantongek jadi teman tepat untuk belajar keuangan dari awal.",
     avatar: "/images/avatar-3.jpeg",
   },
 ];

@@ -62,7 +62,7 @@ export default function SavingsList({
     <div>
       {/* Active Goals */}
       {activeGoals.length > 0 && (
-        <div className="mb-8">
+        <div className="mt-8 mb-8">
           <h2 className="text-lg font-semibold mb-4 text-black dark:text-white">
             Tujuan Aktif
           </h2>

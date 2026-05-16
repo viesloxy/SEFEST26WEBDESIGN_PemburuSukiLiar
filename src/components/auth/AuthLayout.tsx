@@ -34,13 +34,13 @@ export default function AuthLayout({ children, title, subtitle }: AuthLayoutProp
               <div className="relative w-10 h-10">
                 <Image
                   src="/images/Logo.svg"
-                  alt="KANTONGEK"
+                  alt="Kantongek"
                   fill
                   className="object-contain"
                 />
               </div>
               <span className="font-bold text-xl tracking-tight text-black dark:text-white">
-                KANTONGEK
+                Kantongek
               </span>
             </Link>
           </div>

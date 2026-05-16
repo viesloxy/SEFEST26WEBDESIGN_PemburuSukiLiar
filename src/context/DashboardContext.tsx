@@ -71,7 +71,7 @@ export function DashboardProvider({ children }: DashboardProviderProps) {
   const transactions = appData?.transactions || [];
   const savingsGoals = appData?.savingsGoals || [];
   const settings = appData?.settings || {
-    name: "Gen-Z User",
+    name: "Viesloxy",
     darkMode: false,
     monthlyBudget: {
       makanan: 500000,
