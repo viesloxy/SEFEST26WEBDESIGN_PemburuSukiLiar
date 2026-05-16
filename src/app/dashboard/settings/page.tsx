@@ -28,7 +28,7 @@ function SettingsContent({ currentPage }: SettingsContentProps) {
 
   return (
     <div className="min-h-screen bg-neutral-50 dark:bg-neutral-950 transition-colors duration-300">
-      {/* Left Sidebar */}
+      {/* Left Sidebar - Dashboard Navigation */}
       <Sidebar
         currentPage={currentPage}
         isOpen={isSidebarOpen}
@@ -55,12 +55,14 @@ function SettingsContent({ currentPage }: SettingsContentProps) {
                 transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
                 className="mb-8"
               >
-                <h1 className="text-2xl font-medium tracking-tight text-black dark:text-white">
-                  Pengaturan
-                </h1>
-                <p className="text-sm text-neutral-600 dark:text-white/50">
-                  Kelola akun dan preferensi aplikasi
-                </p>
+                <div>
+                  <h1 className="text-3xl md:text-4xl font-semibold tracking-tight text-black dark:text-white">
+                    Pengaturan
+                  </h1>
+                  <p className="text-neutral-600 dark:text-white/50 mt-1">
+                    Kelola akun dan preferensi aplikasi
+                  </p>
+                </div>
               </motion.div>
 
               {/* Settings Sections */}
@@ -140,7 +142,7 @@ function SettingsContent({ currentPage }: SettingsContentProps) {
               <div className="h-16" />
             </div>
 
-            {/* Right Sidebar */}
+            {/* Right Sidebar - Settings Navigation */}
             <SettingsSidebar className="lg:block" />
           </div>
         </main>

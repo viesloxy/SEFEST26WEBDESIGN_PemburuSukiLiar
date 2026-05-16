@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import {
   LayoutDashboard,
@@ -16,6 +17,7 @@ import {
   X,
 } from "lucide-react";
 import { useDashboard } from "@/context/DashboardContext";
+import { useAuth } from "@/context/AuthContext";
 
 interface SidebarProps {
   currentPage: string;
@@ -37,6 +39,8 @@ const bottomNavItems = [
 ];
 
 export default function Sidebar({ currentPage, isOpen, onClose }: SidebarProps) {
+  const router = useRouter();
+  const { logout } = useAuth();
   const [isMobile, setIsMobile] = useState(false);
   const [mounted, setMounted] = useState(false);
   const { settings } = useDashboard();
@@ -190,6 +194,10 @@ export default function Sidebar({ currentPage, isOpen, onClose }: SidebarProps) 
 
             {/* Logout */}
             <button
+              onClick={() => {
+                logout();
+                router.push("/");
+              }}
               className="w-full flex items-center gap-3 px-3 py-3 rounded-xl text-neutral-600 dark:text-white/60 hover:bg-expense/10 hover:text-expense transition-all duration-300"
             >
               <LogOut className="w-5 h-5 flex-shrink-0" />
@@ -314,6 +322,10 @@ export default function Sidebar({ currentPage, isOpen, onClose }: SidebarProps) 
 
             {/* Logout */}
             <button
+              onClick={() => {
+                logout();
+                router.push("/");
+              }}
               className="w-full flex items-center gap-3 px-3 py-3 rounded-xl text-neutral-600 dark:text-white/60 hover:bg-expense/10 hover:text-expense transition-all duration-300"
             >
               <LogOut className="w-5 h-5 flex-shrink-0" />

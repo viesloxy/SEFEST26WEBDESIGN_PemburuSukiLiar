@@ -3,8 +3,10 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, Sun, Moon, User, Settings, LogOut } from "lucide-react";
+import { useRouter } from "next/navigation";
 import { useTheme } from "@/components/providers/ThemeProvider";
 import { useDashboard } from "@/context/DashboardContext";
+import { useAuth } from "@/context/AuthContext";
 
 interface TopBarProps {
   onMenuClick: () => void;
@@ -21,6 +23,8 @@ const pageTitles: Record<string, string> = {
 };
 
 export default function TopBar({ onMenuClick, currentPage }: TopBarProps) {
+  const router = useRouter();
+  const { logout } = useAuth();
   const { theme, toggleTheme } = useTheme();
   const { settings } = useDashboard();
   const [isUserMenuOpen, setIsUserMenuOpen] = useState(false);
@@ -102,11 +106,24 @@ export default function TopBar({ onMenuClick, currentPage }: TopBarProps) {
                   <p className="text-sm text-neutral-500">Gen-Z User</p>
                 </div>
                 <div className="p-2">
-                  <button className="w-full flex items-center gap-3 px-3 py-2 rounded-xl hover:bg-black/5 dark:hover:bg-white/5 transition-colors text-left">
+                  <button
+                    onClick={() => {
+                      router.push("/dashboard/settings");
+                      setIsUserMenuOpen(false);
+                    }}
+                    className="w-full flex items-center gap-3 px-3 py-2 rounded-xl hover:bg-black/5 dark:hover:bg-white/5 transition-colors text-left"
+                  >
                     <Settings className="w-4 h-4 text-black/60 dark:text-white/60" />
                     <span className="text-sm text-black dark:text-white">Pengaturan</span>
                   </button>
-                  <button className="w-full flex items-center gap-3 px-3 py-2 rounded-xl hover:bg-black/5 dark:hover:bg-white/5 transition-colors text-left text-expense">
+                  <button
+                    onClick={() => {
+                      logout();
+                      router.push("/");
+                      setIsUserMenuOpen(false);
+                    }}
+                    className="w-full flex items-center gap-3 px-3 py-2 rounded-xl hover:bg-black/5 dark:hover:bg-white/5 transition-colors text-left text-expense"
+                  >
                     <LogOut className="w-4 h-4" />
                     <span className="text-sm">Keluar</span>
                   </button>

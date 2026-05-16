@@ -82,12 +82,16 @@ export default function Navbar() {
 
                 {/* Desktop Buttons */}
                 <div className="hidden lg:flex items-center gap-3">
-                  <Button variant="ghost" size="sm">
-                    Masuk
-                  </Button>
-                  <Button variant="primary" size="sm">
-                    Daftar
-                  </Button>
+                  <Link href="/login">
+                    <Button variant="ghost" size="sm">
+                      Masuk
+                    </Button>
+                  </Link>
+                  <Link href="/register">
+                    <Button variant="primary" size="sm">
+                      Daftar
+                    </Button>
+                  </Link>
                 </div>
 
                 {/* Mobile Menu Toggle */}
@@ -127,12 +131,16 @@ export default function Navbar() {
                       </Link>
                     ))}
                     <div className="flex gap-3 pt-2">
-                      <Button variant="ghost" size="sm">
-                        Masuk
-                      </Button>
-                      <Button variant="primary" size="sm">
-                        Daftar
-                      </Button>
+                      <Link href="/login">
+                        <Button variant="ghost" size="sm">
+                          Masuk
+                        </Button>
+                      </Link>
+                      <Link href="/register">
+                        <Button variant="primary" size="sm">
+                          Daftar
+                        </Button>
+                      </Link>
                     </div>
                   </div>
                 </motion.div>

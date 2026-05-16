@@ -27,10 +27,10 @@ export default function SavingsHeader({
           <PiggyBank className="w-7 h-7 text-primary" />
         </div>
         <div>
-          <h1 className="text-2xl font-semibold text-black dark:text-white">
+          <h1 className="text-3xl md:text-4xl font-semibold tracking-tight text-black dark:text-white">
             Tabungan
           </h1>
-          <p className="text-neutral-500 dark:text-white/50">
+          <p className="text-neutral-600 dark:text-white/50 mt-1">
             Raih tujuan finansialmu!
           </p>
         </div>

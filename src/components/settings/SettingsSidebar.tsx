@@ -2,6 +2,8 @@
 
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
+import Image from "next/image";
+import Link from "next/link";
 import {
   User,
   Mail,
@@ -10,8 +12,8 @@ import {
   Database,
   AlertTriangle,
   Info,
-  HelpCircle,
   CheckCircle,
+  HelpCircle,
   ExternalLink,
 } from "lucide-react";
 
@@ -68,7 +70,17 @@ export default function SettingsSidebar({ className = "" }: SettingsSidebarProps
     return (
       <aside className={`w-72 flex-shrink-0 hidden lg:block ${className}`}>
         <div className="sticky top-24 space-y-6">
-          {/* Placeholder while loading */}
+          {/* Logo placeholder */}
+          <div className="flex items-center gap-3 px-2 py-2">
+            <div className="relative w-9 h-9 flex-shrink-0">
+              <Image src="/images/Logo.svg" alt="KANTONGEK" fill className="object-contain" />
+            </div>
+            <span className="font-bold text-lg tracking-tight text-black dark:text-white">
+              KANTONGEK
+            </span>
+          </div>
+
+          {/* Placeholder nav */}
           <div className="bg-white dark:bg-neutral-900 rounded-2xl border border-black/5 dark:border-white/5 p-6">
             <div className="h-6 w-32 bg-neutral-200 dark:bg-neutral-800 rounded animate-pulse mb-4" />
             <div className="space-y-2">
@@ -85,6 +97,18 @@ export default function SettingsSidebar({ className = "" }: SettingsSidebarProps
   return (
     <aside className={`w-72 flex-shrink-0 hidden lg:block ${className}`}>
       <div className="sticky top-24 space-y-6">
+        {/* Logo */}
+        <div className="flex items-center gap-3 px-2 py-2">
+          <Link href="/dashboard" className="flex items-center gap-3">
+            <div className="relative w-9 h-9 flex-shrink-0">
+              <Image src="/images/Logo.svg" alt="KANTONGEK" fill className="object-contain" />
+            </div>
+            <span className="font-bold text-lg tracking-tight text-black dark:text-white">
+              KANTONGEK
+            </span>
+          </Link>
+        </div>
+
         {/* Quick Navigation */}
         <motion.div
           initial={{ opacity: 0, x: 20 }}
@@ -176,7 +200,7 @@ export default function SettingsSidebar({ className = "" }: SettingsSidebarProps
           </div>
         </motion.div>
 
-        {/* App Info */}
+        {/* App Version */}
         <motion.div
           initial={{ opacity: 0, x: 20 }}
           animate={{ opacity: 1, x: 0 }}

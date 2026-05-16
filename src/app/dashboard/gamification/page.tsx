@@ -56,19 +56,21 @@ function GamificationContent() {
 
         {/* Page Content */}
         <main className="p-4 lg:p-6 xl:p-8">
-          {/* Header */}
+          {/* Page Header */}
           <motion.div
             className="mb-8"
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
           >
-            <h1 className="text-2xl font-semibold text-black dark:text-white mb-2">
-              Gamifikasi
-            </h1>
-            <p className="text-neutral-500 dark:text-white/50">
-              Cek streak dan unlock badge untuk tetap motivated!
-            </p>
+            <div>
+              <h1 className="text-3xl md:text-4xl font-semibold tracking-tight text-black dark:text-white">
+                Gamifikasi
+              </h1>
+              <p className="text-neutral-600 dark:text-white/50 mt-1">
+                Cek streak dan unlock badge untuk tetap motivated!
+              </p>
+            </div>
           </motion.div>
 
           {/* Streak Section */}
