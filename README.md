@@ -1,11 +1,11 @@
-# Kantongek
+# 🚀 Kantongek - Gen-Z Personal Finance Tracker
 
 <p align="center">
   <img src="public/images/Logo.svg" alt="Kantongek Logo" width="120" />
 </p>
 
 <p align="center">
-  <strong>Gen-Z Personal Finance Tracker</strong>
+  <strong>Live Demo:</strong> 👉 <a href="https://kantongek.netlify.app" target="_blank"><strong>kantongek.netlify.app</strong></a>
 </p>
 
 <p align="center">
@@ -248,10 +248,9 @@ Proyek ini menggunakan **MIT License** - lihat file [LICENSE](LICENSE) untuk det
 
 ---
 
-## Kontak
+## Website
 
-- **Email:** hello@kantongek.id
-- **Website:** [kantongek.id](https://kantongek.id)
+- **Website:** https://kantongek.netlify.app
 
 ---
 
